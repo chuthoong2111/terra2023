@@ -1,0 +1,191 @@
+// breadcrumb
+.breadcrumb {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	white-space: nowrap;
+	overflow: auto;
+	background: rgb(17, 17, 17);
+	background: linear-gradient(0deg, rgba(17, 17, 17, 0.8015581232492998) 20%, rgba(17, 17, 17, 0) 100%);
+	margin: 0;
+	padding-top: 3rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+
+	.active {
+		color: #999;
+		font-family: $font-title;
+		font-size: 14px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		top: 2px;
+	}
+
+	a {
+		color: #ccc;
+		font-size: 14px;
+		font-family: $font-title;
+
+		&:hover {
+			color: #999;
+			text-decoration: none;
+		}
+	}
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+	color: #ccc;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+	border-radius: 50% !important;
+	margin: 0 5px;
+	display: block;
+	width: 52px;
+	height: 52px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// filter
+.filter {
+	font-family: $font-title;
+
+	.card {
+		background: transparent;
+	}
+
+	.card-header {
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+}
+
+// list tour
+.layout {
+	display: flex;
+	margin: 0 -15px;
+	flex-wrap: wrap;
+
+	@include media-breakpoint-up(md) {
+		flex-wrap: wrap;
+	}
+
+	@include media-breakpoint-up(xl) {
+		display: block;
+	}
+
+	.item-tour {
+		min-width: 100%;
+		padding: 0 15px;
+		margin-bottom: 20px;
+
+		@include media-breakpoint-up(md) {
+			min-width: inherit;
+			max-width: 50%;
+			padding: 0 15px;
+
+		}
+
+		@include media-breakpoint-up(xl) {
+			display: flex;
+			min-width: 100%;
+		}
+
+
+	}
+
+	.item-tour__img {
+		@include media-breakpoint-up(xl) {
+			flex-basis: 370px;
+			min-width: 370px;
+
+			.embed-responsive-3by2::before {
+				padding-top: 100%;
+			}
+		}
+
+
+	}
+
+	.item-tour__txt {
+		position: relative;
+		background: rgba($color: $primary, $alpha: .05);
+		padding: 1.5rem !important;
+		color: rgba($color: $danger, $alpha: .8);
+		width: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include media-breakpoint-up(xl) {
+			padding: 2rem !important;
+		}
+	}
+
+	.date-price {
+		color: rgba($color: $danger, $alpha: .66);
+	}
+}
+
+// 
+#filter {
+	.modal-body {
+		padding: 0;
+	}
+
+	.modal-header {
+		background: $danger;
+		color: #fff;
+		font-family: $font-primary;
+	}
+
+	.close {
+		color: #fff;
+	}
+
+	.card,
+	.card-header:first-child {
+		border-radius: 0;
+		border: 0;
+	}
+}
+
+.card,
+.card-header:first-child {
+	border-radius: 0;
+	border: 0;
+}
+
+.list-group-item {
+	border-bottom: 1px solid #eee;
+}
+
+.sticky-top {
+	position: -webkit-sticky;
+	/* Safari */
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.sticky-top2 {
+	position: -webkit-sticky;
+	/* Safari */
+	position: sticky;
+	top: 85px;
+	z-index: 20;
+}
+
+.sticky-left {
+	position: -webkit-sticky;
+	/* Safari */
+	position: sticky;
+	top: 0;
+	left: 0;
+}

@@ -1,0 +1,83 @@
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+	$extmods: (eot: "?",
+			svg: "#"+ str-replace($name, " ", "_"));
+	$formats: (otf: "opentype",
+			ttf: "truetype"
+		);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+	position: absolute;
+
+	@if ($horizontal and $vertical) {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	@else if ($horizontal) {
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+
+	@else if ($vertical) {
+		top: 50%;
+		transform: translate(0, -50%);
+	}
+}
+
+// gradient
+@mixin gradient($direction, $list) {
+	background: -webkit-linear-gradient($direction, $list);
+	background: -moz-linear-gradient($direction, $list);
+	background: -o-linear-gradient($direction, $list);
+	background: linear-gradient($direction, $list);
+}
+
+// font size
+/* Define the mixin */
+@mixin fluid-typography($minFont, $maxFont, $minBreakpoint, $maxBreakpoint) {
+
+	/* Define variable for media query */
+	$maxLessOne: $maxBreakpoint - 1;
+
+	/* Define variable for fallback */
+	$avg: ($maxFont + $minFont) / 2;
+
+	/* Base font size */
+	font-size: #{$minFont}px;
+
+	@media (min-width: #{$minBreakpoint}px) and (max-width: #{$maxLessOne}px) {
+
+		/* Adds a fallback for unsupported browsers */
+		font-size: #{$avg}px;
+
+		/* The fluid typography magic 🌟  */
+		font-size: calc(#{$minFont}px + (#{$maxFont} - #{$minFont}) * (100vw - #{$minBreakpoint}px) / (#{$maxBreakpoint} - #{$minBreakpoint}))
+	}
+
+	@media (min-width: #{$maxBreakpoint}px) {
+		font-size: #{$maxFont}px;
+	}
+}
+
+/* Generate the CSS */
+html {
+
+	/* Just add your arguments */
+	@include fluid-typography(16, 17, 480, 1920);
+}

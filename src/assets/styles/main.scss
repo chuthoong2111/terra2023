@@ -1,0 +1,39 @@
+@import "common/variables";
+
+/**
+ * Import npm dependencies
+ *
+ * Prefix your imports with `~` to grab from node_modules/
+ * @see https://github.com/webpack-contrib/sass-loader#imports
+ */
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+// splidejs
+@import "~@splidejs/splide/dist/css/splide.min.css";
+@import "~@splidejs/splide/dist/css/themes/splide-skyblue.min";
+// Common
+@import "common/global";
+@import "common/mixins";
+@import "common/fonts";
+
+// Layouts
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+
+// Pages
+@import "pages/home";
+@import "pages/listpage";
+@import "pages/detailpage";
+@import "pages/landingpage";
+
+// Components
+// @import "components/welcome";
+@import "components/tophead";
+@import "components/banner";
+@import "components/figure";
+@import "components/chat";
+// @import "components/images-grid";

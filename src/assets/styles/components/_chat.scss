@@ -1,0 +1,238 @@
+.chat-com {
+    position: fixed;
+    bottom: 1rem;
+    right: .75rem;
+    z-index: 999;
+    display: none;
+
+    .dropup .dropdown-toggle {
+        &::after {
+            display: none;
+        }
+    }
+
+    .dropup .dropdown-menu {
+        margin: 0;
+        background: none;
+        box-shadow: none;
+        width: auto;
+        font-size: 16px;
+    }
+
+    .chat-bottom {
+        transition: $trans;
+        border-radius: 4px;
+        background: #fff;
+        position: relative;
+        min-width: 10rem;
+        padding: 5px 0;
+
+        &::before {
+            position: absolute;
+            bottom: -7px;
+            right: 25px;
+            left: auto;
+            display: inline-block !important;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #FFF;
+            border-left: 8px solid transparent;
+            content: '';
+        }
+
+        ul {
+            margin: 0;
+        }
+    }
+
+    .icon-slide {
+        position: relative;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        background: $primary;
+        overflow: hidden;
+
+        .close-chat {
+            background: $primary;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            z-index: 2;
+            top: 300%;
+            left: 50%;
+            position: absolute;
+
+            &.d-flex {
+                visibility: visible;
+                opacity: 1;
+                top: 50%;
+                left: 50%;
+                @include centerer(true, true);
+            }
+        }
+    }
+
+    .facebook {
+        background: #567AFF;
+    }
+
+    .zalo {
+        background: #20AFDE;
+    }
+
+    .mail {
+        background: #FF643A;
+    }
+
+    .skype {
+        background: #00aff0;
+    }
+
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+
+    @media (min-width: 1440px) {
+        right: 1rem;
+    }
+}
+
+.call-icon {
+    color: #666;
+    padding: .5rem .75rem;
+
+    &:hover {
+        text-decoration: none;
+        background: #eee;
+        color: #444;
+    }
+
+    .img-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-radius: 50%;
+        margin: 0 10px 0 0;
+    }
+
+
+}
+
+.pulse {
+    background: $primary;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgba($color: $primary, $alpha: .4);
+    animation: pulse 2s infinite;
+}
+
+.pulse:hover {
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba($primary, 0.4);
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba($primary, 0);
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba($primary, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba($primary, 0.4);
+        box-shadow: 0 0 0 0 rgba($primary, 0.4);
+    }
+
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba($primary, 0);
+        box-shadow: 0 0 0 10px rgba($primary, 0);
+    }
+
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba($primary, 0);
+        box-shadow: 0 0 0 0 rgba($primary, 0);
+    }
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+    bottom: 125px;
+    right: 0.5rem;
+    display: inline-block;
+    position: fixed;
+    width: 130px;
+    padding: 10px;
+    font-size: 13px;
+    height: auto;
+    background-color: lightyellow;
+    border: 3px solid #ffecce;
+    text-align: center;
+    font-weight: bold;
+    z-index: 999;
+    color: $danger;
+}
+
+
+.round {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.btm-left-in:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 16px;
+    left: auto;
+    top: auto;
+    bottom: -17px;
+    border: 8px solid;
+    border-color: #ffecce transparent transparent #ffecce;
+}
+
+.tri-right.btm-left-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 18px;
+    left: auto;
+    top: auto;
+    bottom: -10px;
+    border: 6px solid;
+    border-color: lightyellow transparent transparent lightyellow;
+}
+
+.close-bubble {
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    width: 23px;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+    @include border-radius(50%);
+    color: #888;
+    background: #f2f2f2;
+    font-size: 16px;
+    border: 1px solid #eee;
+    cursor: pointer;
+}

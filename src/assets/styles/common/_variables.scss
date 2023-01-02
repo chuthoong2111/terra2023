@@ -1,0 +1,44 @@
+// Fontawesome 5 config
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+// Glyphicons font path
+$icon-font-path: "../fonts/";
+// font-primary
+$font-primary: 'Roboto',
+sans-serif;
+$font-title: 'Roboto Condensed',
+sans-serif;
+// Theme
+$container-max-widths: (sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1080px);
+$grid-breakpoints: (xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1260px);
+$embed-responsive-aspect-ratios: ((21 9),
+	(21 7),
+	(16 9),
+	(4 3),
+	(2 1),
+	(3 2),
+	(3 4),
+	(1 1)) !default;
+
+$theme-colors: (primary: #EF8D21,
+	secondary: #666,
+	danger:#6D5145,
+	color-brand2: #6D5145,
+	green: #0FA136);
+$trans: all .3s ease-in-out;
+$primary: map-get($map: $theme-colors, $key: "primary");
+$color-brand2: map-get($map: $theme-colors, $key: "color-brand2");
+$secondary: map-get($map: $theme-colors, $key: "secondary");
+$danger: map-get($map: $theme-colors, $key: "danger");
+$green: map-get($map: $theme-colors, $key: "green");
+$list1: $danger,
+$primary;
+// Colors
+$text-color: #4C5151;

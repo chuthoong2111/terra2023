@@ -1,0 +1,58 @@
+.bg-top {
+	background: inherit;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+
+
+	@include media-breakpoint-up(md) {
+		// background: $color-brand2;
+
+	}
+
+	.list-inline-item {
+		margin: 0;
+		display: block;
+
+		@include media-breakpoint-up(md) {
+			display: inline-block;
+		}
+
+		&.active {
+			a {
+				color: #fff;
+			}
+		}
+	}
+
+	a.link-top {
+		padding: .35rem .75rem;
+		color: #bbb;
+		font-size: 16px;
+		display: block;
+
+		@include media-breakpoint-up(md) {
+			font-size: 13px;
+		}
+
+		&:hover {
+			background: $primary;
+			color: #fff !important;
+			text-decoration: none;
+		}
+
+	}
+
+	.dropdown:hover>a.link-top {
+		background: $primary;
+		color: #fff !important;
+	}
+
+	li.list-inline-item:first-child {
+		a.link-top {
+			border-left: 0;
+		}
+	}
+}
+
+// login-signup
